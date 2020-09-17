@@ -3,26 +3,37 @@ const fs = require("fs");
 const path = require("path");
 const policy = require("../policy.json");
 
+const chalk = require("chalk");
 const escapeRegExp = require("./escapeRegExp");
-module.exports.run = (scanPath = path.resolve(".")) => {
-  const list = glob.sync(`${scanPath}/**/*.vue`);
-  list.forEach((path) => {
-    console.log(`####Scan File>>>>> ${path}#####`);
-    const source = fs.readFileSync(path).toString();
-    const lines = source.split("\n");
-    lines.forEach(readLine);
-  });
-};
 
-function readLine(line) {
-  policy.forEach(({ keyword }) => {
-    const reg = new RegExp(escapeRegExp(keyword));
+function matchLine(line, report, lineNo = 0) {
+  policy.forEach((rule) => {
+    const reg = new RegExp(escapeRegExp(rule.keyword));
     const isMatch = line.match(reg);
     if (isMatch) {
-      console.log("line:", line);
+      report(lineNo, line, rule);
     }
   });
 }
+
+function report(lineNo, line, rule) {
+  console.log(`  ${lineNo}:\t${line}`);
+  console.log(`  ${rule.level}\t${rule.message}`);
+  console.log(`  reference Doc:\t${rule.reference}`);
+}
+
+module.exports.run = (scanPath = path.resolve("."), pattern = ".{vue,js}") => {
+  const list = glob.sync(`${scanPath}/**/*${pattern}`);
+  list
+    .filter((file) => file.indexOf("node_modules") === -1)
+    .forEach((file) => {
+      console.log(`Scan: ${path.relative(scanPath, file)}`);
+      const source = fs.readFileSync(file).toString();
+      const lines = source.split("\n");
+      lines.forEach((line, i) => matchLine(line, report, i + 1));
+    });
+};
+module.exports.matchLine = matchLine;
 
 // function printInject(line) {
 //   if (/inject: \[/.exec(line)) {

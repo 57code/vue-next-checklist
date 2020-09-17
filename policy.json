@@ -2,11 +2,13 @@
   {
     "level": "error",
     "keyword": "$scopedSlots",
-    "message": "作用域插槽被弃用"
+    "message": "作用域插槽被弃用",
+    "reference": "https://juejin.im/post/6866373381424414734"
   },
   {
     "level": "error",
     "keyword": "dropDownVisible: false",
-    "message": "dropDownVisible: false"
+    "message": "dropDownVisible: false",
+    "reference": "https://juejin.im/post/6866373381424414734"
   }
 ]
