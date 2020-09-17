@@ -1,0 +1,12 @@
+[
+  {
+    "level": "error",
+    "keyword": "$scopedSlots",
+    "message": "作用域插槽被弃用"
+  },
+  {
+    "level": "error",
+    "keyword": "dropDownVisible: false",
+    "message": "dropDownVisible: false"
+  }
+]
