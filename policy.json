@@ -1,14 +1,32 @@
 [
   {
     "level": "error",
-    "keyword": "$scopedSlots",
+    "keyword": "\\$scopedSlots",
     "message": "作用域插槽被弃用",
     "reference": "https://juejin.im/post/6866373381424414734"
   },
   {
     "level": "error",
-    "keyword": "dropDownVisible: false",
-    "message": "dropDownVisible: false",
-    "reference": "https://juejin.im/post/6866373381424414734"
+    "keyword": "\\$on|\\$off|\\$once",
+    "message": "Event API 中$on，$off，$once已被移除，请使用其他第三方库代替",
+    "reference": "https://v3.vuejs.org/guide/migration/events-api.html"
+  },
+  {
+    "level": "error",
+    "keyword": "(@.+\\.\\d)|(v-on:.+\\.\\d)",
+    "message": "keyCode 不能再作为 v-on 修饰符使用，请使用别名代替",
+    "reference": "https://v3.vuejs.org/guide/migration/events-api.html"
+  },
+  {
+    "level": "error",
+    "keyword": "Vue.filter|filters:",
+    "message": "过滤器已被移除，请使用计算属性代替",
+    "reference": "https://v3.vuejs.org/guide/migration/filters.html"
+  },
+  {
+    "level": "error",
+    "keyword": "inline-template",
+    "message": "内联模板语法已被移除，请使用<script type=\"text/html\">方式定义模板",
+    "reference": "https://v3.vuejs.org/guide/migration/inline-template-attribute.html"
   }
 ]
