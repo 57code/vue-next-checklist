@@ -28,5 +28,65 @@
     "keyword": "inline-template",
     "message": "内联模板语法已被移除，请使用<script type=\"text/html\">方式定义模板",
     "reference": "https://v3.vuejs.org/guide/migration/inline-template-attribute.html"
+  },
+  {
+    "level": "warn",
+    "keyword": "\\$watch\\(\"[a-zA-Z\\$_]+\\.",
+    "message": "$watch()不再支持点分隔符字符串路径, 使用计算函数作为其参数",
+    "reference": "http://v3.vuejs.org/api/instance-methods.html#watch"
+  },
+  {
+    "level": "warn",
+    "keyword": "v-enter|v-leave",
+    "message": "transition类名已修改v-enter -> v-enter-from, v-leave -> v-leave-from",
+    "reference": ""
+  },
+  {
+    "level": "warn",
+    "keyword": "Vue.directive\\(|directives:",
+    "message": "自定义指令API和组件一致, bind/unbind/inserted等钩子已改变",
+    "reference": "https://v3.vuejs.org/guide/migration/custom-directives.html"
+  },
+  {
+    "level": "warn",
+    "keyword": ":?is=\"",
+    "message": "确保is属性仅用在component标签上",
+    "reference": "https://v3.vuejs.org/guide/migration/custom-elements-interop.html"
+  },
+  {
+    "level": "error",
+    "keyword": "data:\\s*{",
+    "message": "组件data选项应该总是声明为函数",
+    "reference": "https://v3.vuejs.org/guide/migration/data-option.html"
+  },
+  {
+    "level": "warn",
+    "keyword": "\\(\\)\\s*=>\\s*import\\(.*\\)",
+    "message": "异步组件要求使用 defineAsyncComponent 方法创建",
+    "reference": "https://v3.vuejs.org/guide/migration/async-components.html"
+  },
+  {
+    "level": "warn",
+    "keyword": "\\.sync=\"",
+    "message": "sync 修饰符被移除，统一为v-model参数形式",
+    "reference": "https://v3.vuejs.org/guide/migration/v-model.html"
+  },
+  {
+    "level": "warn",
+    "keyword": "Vue\\.component|directive|use|mixin|config",
+    "message": "Global API 改为应用程序实例调用",
+    "reference": "https://v3.vuejs.org/guide/migration/global-api.html"
+  },
+  {
+    "level": "warn",
+    "keyword": "Vue\\.config\\.productionTip",
+    "message": "productionTip选项已被移除",
+    "reference": "https://v3.vuejs.org/guide/migration/global-api.html"
+  },
+  {
+    "level": "warn",
+    "keyword": "Vue\\.config\\.ignoredElements",
+    "message": "ignoredElements请使用isCustomElement替代",
+    "reference": "https://v3.vuejs.org/guide/migration/global-api.html"
   }
 ]
